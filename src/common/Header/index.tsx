@@ -6,7 +6,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { FiSun } from "react-icons/fi";
 import throttle from "lodash.throttle";
 
-import { ThemeMenu, Logo } from "..";
+import { ThemeMenu, Logo, WatchlistBadge } from "..";
 import HeaderNavItem from "./HeaderNavItem";
 
 import { useGlobalContext } from "@/context/globalContext";
@@ -92,24 +92,28 @@ const Header = () => {
             })}
           </ul>
 
-          <div className="button relative">
-            <button
-              name="theme-menu"
-              type="button"
-              onClick={openMenu}
-              id="theme"
-              className={cn(
-                `flex items-center justify-center mb-[2px] transition-all duration-100 hover:scale-110`,
-                isNotFoundPage || isActive
-                  ? ` ${textColor} dark:hover:text-secColor hover:text-black `
-                  : ` dark:hover:text-secColor text-gray-300 `
-              )}
-            >
-              {theme === "Dark" ? <BsMoonStarsFill /> : <FiSun />}
-            </button>
-            <AnimatePresence>
-              {showThemeOptions && <ThemeMenu />}
-            </AnimatePresence>
+          <div className="flex gap-4 items-center">
+            <WatchlistBadge />
+
+            <div className="button relative">
+              <button
+                name="theme-menu"
+                type="button"
+                onClick={openMenu}
+                id="theme"
+                className={cn(
+                  `flex items-center justify-center mb-[2px] transition-all duration-100 hover:scale-110`,
+                  isNotFoundPage || isActive
+                    ? ` ${textColor} dark:hover:text-secColor hover:text-black `
+                    : ` dark:hover:text-secColor text-gray-300 `
+                )}
+              >
+                {theme === "Dark" ? <BsMoonStarsFill /> : <FiSun />}
+              </button>
+              <AnimatePresence>
+                {showThemeOptions && <ThemeMenu />}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
 

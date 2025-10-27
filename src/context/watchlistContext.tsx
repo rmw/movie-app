@@ -86,3 +86,5 @@ export const WatchlistProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
   return <WatchlistContext.Provider value={value}>{children}</WatchlistContext.Provider>;
 };
+
+export default WatchlistProvider;

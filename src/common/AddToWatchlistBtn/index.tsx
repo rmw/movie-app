@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { useWatchlist } from '@/hooks/useWatchlist';
 import { IMovie } from '@/types.d';
-import { cn } from 'clsx';
+import { cn } from '@/utils/helper';
 
 interface AddToWatchlistBtnProps {
   movie: IMovie;

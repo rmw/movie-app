@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa';
 import { useWatchlist } from '@/hooks/useWatchlist';
-import { cn } from 'clsx';
+import { cn } from '@/utils/helper';
 
 const WatchlistBadge = memo(() => {
   const { getCount } = useWatchlist();

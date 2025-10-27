@@ -16,3 +16,21 @@ export interface IMovie {
   backdrop_path: string
 }
 
+export interface WatchlistItem {
+  id: string;
+  type: 'movie' | 'tv';
+  title: string;
+  poster_path: string;
+  addedAt: number;
+}
+
+export interface WatchlistContextType {
+  items: WatchlistItem[];
+  addToWatchlist: (movie: IMovie, type: 'movie' | 'tv') => void;
+  removeFromWatchlist: (id: string) => void;
+  isInWatchlist: (id: string) => boolean;
+  getCount: () => number;
+  getSorted: (items: WatchlistItem[], sortBy: 'date-new' | 'date-old' | 'title') => WatchlistItem[];
+  getFiltered: (filter: 'all' | 'movie' | 'tv') => WatchlistItem[];
+}
+
